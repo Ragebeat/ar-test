@@ -2,8 +2,11 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <body style="margin : 0px; overflow: hidden;">
+  <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs>
+      <a-assets>
+        <video id="video" loop="true" src="220929_トリエルCM 【NewTrielLogo】ver3.mp4"></video>
+      </a-assets>
       <a-marker url="pattern-marker.patt" type="pattern">
         <!-- we use cors proxy to avoid cross-origin problems -->
         <!--
@@ -12,27 +15,30 @@
           You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
           ⚠️⚠️⚠️
         -->
-        <a-video controls autoplay src="220929_トリエルCM 【NewTrielLogo】ver3.mp4"  rotation="-90 0 0" scale="3 3 3" width="1.7" height ="1"></a-video>
+        <a-video src="#video" rotation="-90 0 0" scale="3 3 3" width="1.7" height="1"></a-video>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
     <button onclick="pause()">123</button>
     <script>
-      const pause=()=>{
-        if(document.querySelector('a-video').isPlaying){
-          document.querySelector('a-video').pause();
-        }else{
-          document.querySelector("a-video").play()
+      let trigger = false;
+      const pause = () => {
+        document.querySelector("#video").play();
+        console.log(document.querySelector("#video").isPlaying);
+        if (trigger) {
+          document.querySelector("#video").pause();
+          trigger = false;
+        } else {
+          document.querySelector("#video").play();
+          trigger = true;
         }
-      }
-      
-      console.log()
+      };
     </script>
     <style>
-      button{
+      button {
         position: absolute;
-        top:50px;
-        left:50%;
+        top: 50px;
+        left: 50%;
         z-index: 1000;
       }
     </style>
