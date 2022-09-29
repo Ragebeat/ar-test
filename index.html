@@ -12,9 +12,29 @@
           You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
           ⚠️⚠️⚠️
         -->
-        <a-video src="220929_トリエルCM 【NewTrielLogo】ver3.mp4"  rotation="-90 0 0" scale="3 3 3" width="1.7" height ="1"></a-video>
+        <a-video controls autoplay src="220929_トリエルCM 【NewTrielLogo】ver3.mp4"  rotation="-90 0 0" scale="3 3 3" width="1.7" height ="1"></a-video>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
+    <button onclick="pause()">123</button>
+    <script>
+      const pause=()=>{
+        if(document.querySelector('a-video').isPlaying){
+          document.querySelector('a-video').pause();
+        }else{
+          document.querySelector("a-video").play()
+        }
+      }
+      
+      console.log()
+    </script>
+    <style>
+      button{
+        position: absolute;
+        top:50px;
+        left:50%;
+        z-index: 1000;
+      }
+    </style>
   </body>
 </html>
