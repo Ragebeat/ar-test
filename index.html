@@ -17,7 +17,7 @@
           ⚠️⚠️⚠️
         -->
         <a-video src="#video" rotation="-90 0 0" scale="3 3 3" width="1.7" height="1"></a-video>
-        <a-image src="#my-image"  rotation="-90 0 0" position="0 0.1 0" scale="3 3 3" width="1.7" height="1"></a-image>
+        <a-image src="#my-image"  rotation="-90 0 0" scale="3 3 3" width="1.7" height="1"></a-image>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
@@ -27,14 +27,14 @@
       const pause = () => {
         if (trigger) {
           document.querySelector("#video").pause();
-          document.querySelector("a-image").setAttribute('position',{x:0,y:0.1,z:0})
+          document.querySelector("a-video").setAttribute('scale',{x:0,y:0,z:0})
           document.querySelector("a-image").setAttribute('scale',{x:3,y:3,z:3})
           document.querySelector("#playbtn").style.display="inline"
           document.querySelector("#pauseBTN").style.display="none"
           trigger = false;
         } else {
           document.querySelector("#video").play();
-          document.querySelector("a-image").setAttribute('position',{x:0,y:-1,z:0})
+          document.querySelector("a-video").setAttribute('scale',{x:3,y:3,z:3})
           document.querySelector("a-image").setAttribute('scale',{x:0,y:0,z:0})
           document.querySelector("#playbtn").style.display="none"
           document.querySelector("#pauseBTN").style.display="inline"
