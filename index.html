@@ -10,7 +10,7 @@
       </a-assets>
       <a-marker url="1.patt" type="pattern">
         <a-video src="#video" look-at="[camera]" scale="0 0 0" width="1.7" height="1"></a-video>
-        <a-image src="#my-image"  look-at="[camera]" scale="3 3 3" width="1.7" height="1"></a-image>
+        <a-image src="#my-image"  look-at="[camera]" scale="2 2 2" width="1.7" height="1"></a-image>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
@@ -21,13 +21,13 @@
         if (trigger) {
           document.querySelector("#video").pause();
           document.querySelector("a-video").setAttribute('scale',{x:0,y:0,z:0})
-          document.querySelector("a-image").setAttribute('scale',{x:3,y:3,z:3})
+          document.querySelector("a-image").setAttribute('scale',{x:2,y:2,z:2})
           document.querySelector("#playbtn").style.display="inline"
           document.querySelector("#pauseBTN").style.display="none"
           trigger = false;
         } else {
           document.querySelector("#video").play();
-          document.querySelector("a-video").setAttribute('scale',{x:3,y:3,z:3})
+          document.querySelector("a-video").setAttribute('scale',{x:2,y:2,z:2})
           document.querySelector("a-image").setAttribute('scale',{x:0,y:0,z:0})
           document.querySelector("#playbtn").style.display="none"
           document.querySelector("#pauseBTN").style.display="inline"
